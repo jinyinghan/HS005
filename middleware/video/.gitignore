@@ -1,0 +1,14 @@
+src/*.o
+#src/*.a
+src/S301-*
+src/ysx_sample_three_stream
+src/ysx_sample_one_stream  
+src/ysx_sample_osd 
+src/ysx_sample_three_stream
+src/ysx_sample_config
+src/ysx_sample_ivs_move
+src/rtsp_server
+src/test_api
+src/test_list
+src/test_media_buf
+src/test_motion

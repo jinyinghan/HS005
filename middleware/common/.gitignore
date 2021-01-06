@@ -1,0 +1,4 @@
+*.o
+fwupdate
+gpio_led
+libysx_sys.a

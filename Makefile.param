@@ -1,0 +1,71 @@
+# 注意变量后面不能有空格
+PWD := $(shell pwd)
+PUBLISH ?= debug
+#TARGET := mips-linux-gnu
+
+# 版本规则
+# 第一个数字：客户序号+设备类别
+# 第二个数字：设备平台号
+# 第三个数字：阶段版本号,用第67位来标识清晰度	
+#				0: 1080P 720P， 
+#				1：720p 360p， 
+#				2：1080p 360p，
+#				3：720p 480p
+# 第四个数字: 小版本号
+FW_VERSION  ?= 90068000 
+
+# 设备类型
+# 0:卡片机 , 1 摇头机， 2 枪机  3 全景 4电池版 5双光源 6 500W枪机
+CAMERA_TYPE ?= 1
+
+# 是否开启云服务
+YSX_CLOUD ?= y
+
+# 算法灵敏度是否可调
+IVS_SENSE ?= y
+
+# 产品型号
+PRODUCT_NAME ?= s212
+
+# 固件名称
+FW_NAME	?= FIRMWARE_$(PRODUCT_NAME)
+
+# 云存储环境,设备环境
+CLOUD_ENV ?= p
+ifeq (${CLOUD_ENV}, p)
+# OTA 环境
+ENV_PROD ?= y
+else
+ENV_PROD ?= n
+endif
+
+# 芯片类型
+SOC_TYPE := T20 
+CHIP:= T20
+
+# 是否使用看门狗
+USE_WDT ?= y
+
+ifeq (${CAMERA_TYPE}, 1)
+USE_MOTION_TRACK ?= y
+endif 
+
+SDK_DIR := $(PWD)/ipc_sdk
+INS_DIR := $(PWD)/_install
+
+
+export ENV_PROD
+export YSX_CLOUD
+export CLOUD_ENV
+export IVS_SENSE
+export P_P_NAME
+export FW_NAME
+export CLOUD_ENV
+export CAMERA_TYPE 
+export SOC_TYPE
+export SDK_DIR
+export INS_DIR
+export PRODUCT_NAME
+export USE_MOTION_TRACK
+export USE_IVS
+export USE_WDT

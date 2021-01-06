@@ -1,0 +1,1 @@
+cmd_/home/lzf/T31/AP6PCT00/driver/uln2803_t/uln2803.ko := mips-linux-gnu-ld -r  -m elf32ltsmip -T /home/lzf/T31/AP6PCT00/opensource/kernel/scripts/module-common.lds --build-id  -o /home/lzf/T31/AP6PCT00/driver/uln2803_t/uln2803.ko /home/lzf/T31/AP6PCT00/driver/uln2803_t/uln2803.o /home/lzf/T31/AP6PCT00/driver/uln2803_t/uln2803.mod.o

@@ -1,0 +1,48 @@
+#!/bin/sh
+gpio_opt -n 62 -m 1 -v 1
+gpio_opt -n 53 -m 1 -v 1
+gpio_opt -n 63 -m 1 -v 1 #######  speak_en
+#exit
+ 
+modprobe  tx-isp-t31 isp_clk=200000000
+modprobe  sensor_sc3335_t31 data_interface=1
+modprobe  avpu
+modprobe  uln2803 Motor_speed=250
+modprobe  audio
+modprobe  8189fs
+modprobe  sample_led
+
+echo 20 > /proc/sys/vm/dirty_writeback_centisecs
+echo 100 > /proc/sys/vm/swappiness
+echo 8388608 > /sys/block/zram0/disksize
+mkswap /dev/zram0
+swapon /dev/zram0
+
+#deamonaudio_ysx &
+#/usr/sbin/watchdog &
+usleep 1000000
+
+ifconfig eth0 up
+ifconfig wlan0 up
+
+echo 120 > /proc/sys/net/ipv4/tcp_keepalive_time
+echo 30 > /proc/sys/net/ipv4/tcp_keepalive_intvl
+echo 3 > /proc/sys/net/ipv4/tcp_keepalive_probes
+
+telnetd &
+
+if [ ! -f /tmp/sd_ok ];then
+    mdev -s
+fi
+sleep 1
+echo 1 > /proc/sys/vm/overcommit_memory
+#exit
+#cd /tmp/mmcblk0p1
+#./carrier.local
+#/usr/bin/monitor /var/log/monitor.log &
+#sh /etc/init.d/checknetwork.sh &
+#exit
+#/usr/bin/tstreamer & 
+/usr/bin/tstreamer /var/log/tstreamer.log &
+touch /tmp/sd_log_enable
+touch /tmp/led_fill_open

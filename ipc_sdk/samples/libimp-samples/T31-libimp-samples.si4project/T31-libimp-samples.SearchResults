@@ -1,0 +1,12 @@
+---- nrVBs Matches (11 in 3 files) ----
+sample_res_framesource_param_default in sample-Change-Resolution-Common.c : 	fschn_attr->nrVBs = vbnum;
+sample-common.c line 53 : 			.nrVBs = 2,
+sample-common.c line 78 : 			.nrVBs = 2,
+sample-common.c line 105 : 			.nrVBs = 2,
+sample-common.c line 132 : 			.nrVBs = 2,
+sample-common.c line 159 : 			.nrVBs = 3,
+sample-common.c line 184 : 			.nrVBs = 3,
+get_frame in sample-common.c : 	ret = IMP_FrameSource_SetFrameDepth(chnNum, chn[index].fs_chn_attr.nrVBs * 2);
+get_frame in sample-common.c : 		IMP_LOG_ERR(TAG, "IMP_FrameSource_SetFrameDepth(%d,%d) failed\n", chnNum, chn[index].fs_chn_attr.nrVBs * 2);
+sample_frame_ivs_get_frame_thread in sample-Framesource-algo.c : 	ret = IMP_FrameSource_SetFrameDepth(chnNum, chn[index].fs_chn_attr.nrVBs * 2);
+sample_frame_ivs_get_frame_thread in sample-Framesource-algo.c : 		IMP_LOG_ERR(TAG, "IMP_FrameSource_SetFrameDepth(%d,%d) failed\n", chnNum, chn[index].fs_chn_attr.nrVBs * 2);

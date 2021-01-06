@@ -1,0 +1,8 @@
+---- info -> status Matches (7 in 1 files) ----
+motor_set_default in motor.c : 	info -> status = MOTOR_MOVE_STOP;
+jz_timer_interrupt in motor.c : 		info -> status = MOTOR_MOVE_STOP;
+jz_timer_interrupt in motor.c : 				info -> status = MOTOR_MOVE_STOP;
+jz_timer_interrupt in motor.c : 				info -> status = MOTOR_MOVE_STOP;
+jz_timer_interrupt in motor.c : 				info -> status = MOTOR_MOVE_STOP;
+jz_timer_interrupt in motor.c : 				info -> status = MOTOR_MOVE_STOP;
+motor_move in motor.c : 	info -> status = MOTOR_MOVE_RUN;

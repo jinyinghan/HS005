@@ -1,0 +1,6 @@
+libysx_aud.a
+libysx_aud.so
+libysx_sys.a
+libysx_sys.so
+*.o
+test_api

@@ -1,0 +1,14 @@
+---- QCamVideoInput_SetOSD Matches (13 in 4 files) ----
+1.txt line 464 : 0000a168 T QCamVideoInput_SetOSD
+main in main.c :     ret = QCamVideoInput_SetOSD(0, &osd_attr);
+main in main.c :        printf("QCamVideoInput_SetOSD ERROR !\n");
+main in main.c : 	ret = QCamVideoInput_SetOSD(1, &osd_attr);
+main in main.c :        printf("QCamVideoInput_SetOSD ERROR !\n");
+main in main.c :    		printf("QCamVideoInput_SetOSD ERROR !\n");
+main in test_motion.c : 	ret = QCamVideoInput_SetOSD(0, &osd_attr);
+main in test_motion.c : 		printf("QCamVideoInput_SetOSD ERROR !\n");
+main in test_motion.c : 	ret = QCamVideoInput_SetOSD(1, &osd_attr);
+main in test_motion.c : 		printf("QCamVideoInput_SetOSD ERROR !\n");
+main in test_motion.c : 	ret = QCamVideoInput_SetOSD(2, &osd_attr);
+main in test_motion.c : 		printf("QCamVideoInput_SetOSD ERROR !\n");
+ysx_osd.c line 488 : int QCamVideoInput_SetOSD(int channel, QCamVideoInputOSD *pOsdInfo)

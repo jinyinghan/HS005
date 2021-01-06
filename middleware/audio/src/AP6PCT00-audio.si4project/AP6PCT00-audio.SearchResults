@@ -1,0 +1,9 @@
+---- QCamAudioInputOpen Matches (8 in 5 files) ----
+main in audio_test.c : 	ret = QCamAudioInputOpen(&micAttr);//475ms
+main in audio_test.c : 		printf("QCamAudioInputOpen error:%d\n", ret);
+main in sample_aec.c :     QCamAudioInputOpen(&attr);
+main in sample_aec.c :         QLOG(FATAL, "QCamAudioInputOpen Failed\n");
+main in sample_record.c :         QLOG(FATAL, "QCamAudioInputOpen Failed\n");
+main in test_api.c : 	ret = QCamAudioInputOpen(&attr);
+main in test_api.c : 		fprintf(stderr, "QCamAudioInputOpen Failed\n");
+ysx_audio.c line 58 : int QCamAudioInputOpen(QCamAudioInputAttr *pAttr) 

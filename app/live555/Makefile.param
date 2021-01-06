@@ -1,0 +1,2 @@
+#SDK_DIR := /mnt/ysx/hpt/source_code/C212/ingenic_sdk/Ingenic-SDK-T21-1.0.31-20190817
+SDK_DIR := /home/lzf/T20_21_SDK/new_sdk/ingenic_sdk/Ingenic-SDK-T21-1.0.31-20190817

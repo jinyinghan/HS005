@@ -1,0 +1,66 @@
+#!/bin/sh
+
+# Set mdev
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+/sbin/mdev -s && echo "mdev is ok......"
+
+# create console and null node for nfsroot
+#mknod -m 600 /dev/console c 5 1
+#mknod -m 666 /dev/null c 1 3
+
+# Set Global Environment
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+
+# networking
+ifconfig lo up
+#ifconfig eth0 192.168.1.80
+
+# Mount user partition
+result=$(cat /proc/cmdline | grep "mtdblock2")
+if [[ "$result" != "" ]];then
+    ###echo "x0"
+    mount -t squashfs /dev/mtdblock3 /usr
+else
+    ###echo "x1"
+    mount -t squashfs /dev/mtdblock6 /usr
+fi
+###mount -t squashfs /dev/mtdblock3 /usr
+
+# Set the system time from the hardware clock
+#hwclock -s
+
+# Create var directories
+mkdir -p /var/log
+
+# Turn on log
+syslogd
+klogd
+
+# insmod modules
+#modprobe tx-isp
+#modprobe sensor_imx323
+#modprobe exfat
+#modprobe sample_pwm_core 
+#modprobe sample_pwm_hal 
+
+
+mount -t jffs2 /dev/mtdblock7 /system_rw
+
+if [ $? -ne 0 ]; then
+    echo "Clean up the old data in the 'mtd' partition."
+    /usr/sbin/flash_erase /dev/mtd6 0 0
+    mount -t jffs2 /dev/mtdblock6 /system_rw
+fi
+if [ ! -x /system_rw/rc.local ]; then
+        echo "The system run for the first time."
+        echo "Please wait for initialization..."
+#       /sbin/mke2fs /dev/mtdblock4
+#       /usr/sbin/flash_eraseall -j -q /dev/mtd4
+        rm -rf /system_rw/*
+        cp -r /usr/system/etc_rw/* /system_rw/
+        sync
+fi
+/usr/bin/fw_diff
+# wpa_supplicant interface
+mkdir -p /var/run/wpa_supplicant
+/system_rw/rc.local

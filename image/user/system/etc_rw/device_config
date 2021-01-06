@@ -1,0 +1,15 @@
+lightness_top1=5200	
+lightness_button1=2500000
+lightness_top2=80
+lightness_button2=800
+ev_log=0				
+jpeg_profile=0			
+#ev1=1450000 
+ev1=15000000 
+ev2=1006000
+mic_gain=25			 
+spk_gain=24		
+aw8733_mode=2		
+//for vbr
+maxQp=51	
+minQp=20

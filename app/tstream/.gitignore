@@ -1,0 +1,12 @@
+*.o
+*.264
+*.pk
+*.aac
+*.pcm
+*.avi
+avi_demuxer
+index_parse
+led_ctrl
+log.txt
+scan_dir
+tstreamer
